@@ -101,14 +101,66 @@ document.addEventListener("DOMContentLoaded", () => {
               return;
             }
 
-            recommendations.forEach((rec) => {
+            recommendations.forEach((rec, index) => {
               const item = document.createElement("div");
               item.className = "recommendation-item";
-              item.innerHTML = `
+
+              const content = document.createElement("div");
+              content.className = "recommendation-content";
+              content.innerHTML = `
                 <span class="recommendation-type">${rec.type}</span>
                 <div class="recommendation-title">${rec.title}</div>
                 <div class="recommendation-reason">${rec.reason}</div>
               `;
+
+              const addBtn = document.createElement("button");
+              addBtn.className = "btn btn-glass btn-sm add-rec-btn";
+              addBtn.innerHTML = "Add to My Collection";
+              addBtn.style.fontSize = "0.75rem";
+              addBtn.style.padding = "0.4rem 0.8rem";
+              addBtn.style.whiteSpace = "nowrap";
+
+              addBtn.addEventListener("click", () => {
+                const originalBtnHtml = addBtn.innerHTML;
+                addBtn.disabled = true;
+                addBtn.innerHTML =
+                  '<span class="loading-spinner" style="width: 12px; height: 12px;"></span> Adding...';
+
+                fetch("api/add-to-collection.php", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    title: rec.title,
+                    type: rec.type,
+                    creator: "", // AI doesn't always provide creator in this schema, could be part of title or separate
+                  }),
+                })
+                  .then((res) => res.json())
+                  .then((data) => {
+                    if (data.success) {
+                      addBtn.innerHTML = "Added!";
+                      addBtn.classList.remove("btn-glass");
+                      addBtn.classList.add("btn-primary");
+                      // Optionally refresh the "Recently Added" section if we want to be fancy
+                      // but for now, just success state is fine.
+                    } else {
+                      addBtn.disabled = false;
+                      addBtn.innerHTML = originalBtnHtml;
+                      alert("Error: " + (data.error || "Could not add item"));
+                    }
+                  })
+                  .catch((err) => {
+                    addBtn.disabled = false;
+                    addBtn.innerHTML = originalBtnHtml;
+                    console.error(err);
+                    alert("Network error occurred.");
+                  });
+              });
+
+              item.appendChild(content);
+              item.appendChild(addBtn);
               resultsContainer.appendChild(item);
             });
           }

@@ -196,12 +196,21 @@ select.form-control option {
     padding: 1.25rem;
     margin-bottom: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: transform 0.2s ease;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
 }
 
 .recommendation-item:hover {
     background: rgba(255, 255, 255, 0.05);
     transform: translateX(5px);
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+.recommendation-content {
+    flex: 1;
 }
 
 .recommendation-type {
