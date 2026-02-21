@@ -1,22 +1,6 @@
 <?php
-session_start();
 require_once __DIR__ . '/../includes/db.php';
-
-function isLoggedIn()
-{
-    return isset($_SESSION['user_id']);
-}
-
-function isAdmin()
-{
-    return isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin';
-}
-
-function redirect($path)
-{
-    header("Location: $path");
-    exit();
-}
+require_once __DIR__ . '/../includes/auth.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

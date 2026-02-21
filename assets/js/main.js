@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   }
-<<<<<<< HEAD
 
   // AI Recommendations Fetching
   const aiBtn = document.getElementById("getAiRecommendations");
@@ -124,8 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
   }
-=======
->>>>>>> parent of bf47a19 (Implement env file for variable)
 });
 
 function copyShareUrl() {

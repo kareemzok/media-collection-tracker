@@ -87,7 +87,8 @@ $aiRemaining = max(0, $aiLimit - $aiUsage);
                 </div>
                 <h3 style="margin-bottom: 0.25rem; font-size: 1.1rem;"><?php echo htmlspecialchars($item['title']); ?></h3>
                 <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 1rem;">
-                    <?php echo htmlspecialchars($item['creator']); ?></p>
+                    <?php echo htmlspecialchars($item['creator']); ?>
+                </p>
                 <div style="margin-top: auto;">
                     <a href="<?php echo BASE_URL; ?>/media-edit.php?id=<?php echo $item['id']; ?>" class="btn btn-glass"
                         style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Edit Details</a>
@@ -98,7 +99,6 @@ $aiRemaining = max(0, $aiLimit - $aiUsage);
 </div>
 
 <div class="glass-card" style="margin-top: 4rem; padding: 2rem;">
-<<<<<<< HEAD
     <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
         <div>
             <h3 style="margin-bottom: 0.5rem; <?php echo !AI_ENABLED_BOOL ? 'color: var(--text-dim);' : ''; ?>">Smart
@@ -142,15 +142,6 @@ $aiRemaining = max(0, $aiLimit - $aiUsage);
     </div>
 
     <p id="aiStatusMessage" style="color: var(--primary); font-size: 0.8rem; margin-top: 1rem; display: none;"></p>
-=======
-    <h3>Quick AI Suggestion (Draft)</h3>
-    <p style="color: var(--text-dim); font-size: 0.95rem; margin-top: 0.5rem;">
-        Based on your preference for <strong>Sci-Fi movies</strong>, you might enjoy <strong>"Blade Runner
-            2049"</strong>.
-        <span style="color: var(--primary); font-size: 0.8rem; display: block; margin-top: 0.5rem;">💡 This is a
-            placeholder for the Smart Recommendation engine.</span>
-    </p>
->>>>>>> parent of bf47a19 (Implement env file for variable)
 </div>
 
 <?php require_once __DIR__ . '/partials/footer.php'; ?>
