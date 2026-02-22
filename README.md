@@ -20,7 +20,8 @@ A premium, native PHP application with a glassy aesthetic to help you track your
 
 1. Create a MySQL database named `media_tracker`.
 2. Import the `schema.sql` file located in the root directory.
-3. Rename `.env.example` to `.env` (or create a `.env` file) and update with your credentials:
+3. Run `php seed.php` to load default accounts and demo media data (optional, but recommended for local testing).
+4. Rename `.env.example` to `.env` (or create a `.env` file) and update with your credentials:
 
    ```env
    DB_HOST=localhost
@@ -49,6 +50,7 @@ A premium, native PHP application with a glassy aesthetic to help you track your
    - Use **MySQL® Database Wizard** in cPanel to create a database and user.
    - Assign the user to the database with **All Privileges**.
    - Import `schema.sql` using **phpMyAdmin**.
+   - Run `php seed.php` (or execute the script once from terminal) if you want demo accounts and sample media.
 3. **Environment Configuration**:
    - Create a `.env` file in the remote directory.
    - Enter your cPanel database details and OpenAI API key.

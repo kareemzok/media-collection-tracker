@@ -43,25 +43,3 @@ CREATE TABLE IF NOT EXISTS ai_usage (
     PRIMARY KEY (user_id, usage_date),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
-
--- Note: Password for both is 'password'
-INSERT INTO users (username, email, password, role, bio) VALUES 
-('admin', 'admin@example.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin', 'System Administrator'),
-('kareem', 'kareem@example.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'user', 'Media enthusiast and collector.');
-
--- Note: Password for both is 'password'
-
-INSERT INTO media_items (user_id, title, creator, release_date, type, genre, status, rating, notes) VALUES 
-(2, 'Inception', 'Christopher Nolan', '2010-07-16', 'movie', 'Sci-Fi', 'completed', 5, 'Masterpiece of modern cinema.'),
-(2, 'The Legend of Zelda: Breath of the Wild', 'Nintendo', '2017-03-03', 'game', 'Action-Adventure', 'currently using', 5, 'Best open world game ever.'),
-(2, 'Rumours', 'Fleetwood Mac', '1977-02-04', 'music', 'Rock', 'owned', 5, 'The ultimate breakup album.'),
-(2, 'Interstellar', 'Christopher Nolan', '2014-11-07', 'movie', 'Sci-Fi', 'wishlist', NULL, 'Need to buy the 4K version.');
-
-
-CREATE TABLE IF NOT EXISTS ai_usage (
-    user_id INT NOT NULL,
-    usage_date DATE NOT NULL,
-    usage_count INT DEFAULT 0,
-    PRIMARY KEY (user_id, usage_date),
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
-);
