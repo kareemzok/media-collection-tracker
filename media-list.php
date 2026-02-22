@@ -47,23 +47,21 @@ $stmt->execute($params);
 $items = $stmt->fetchAll();
 ?>
 
-<div class="page-header" style="margin-bottom: 2rem;">
+<div class="page-header media-list-header">
     <h1>My Collection</h1>
     <a href="<?php echo BASE_URL; ?>/media-edit.php" class="btn btn-primary">+ Add New Item</a>
 </div>
 
 <!-- Filters -->
-<div class="glass-card" style="padding: 1.5rem; margin-bottom: 2rem;">
-    <form method="GET" class="filters-form">
+<div class="glass-card media-list-filters-card">
+    <form method="GET" class="filters-form media-list-filters-form">
         <div class="filter-search">
-            <label
-                style="font-size: 0.8rem; color: var(--text-dim); display: block; margin-bottom: 0.4rem;">Search</label>
+            <label class="filter-label">Search</label>
             <input type="text" name="search" class="form-control" value="<?php echo htmlspecialchars($search); ?>"
                 placeholder="Title, creator, or genre...">
         </div>
         <div class="filter-select">
-            <label
-                style="font-size: 0.8rem; color: var(--text-dim); display: block; margin-bottom: 0.4rem;">Type</label>
+            <label class="filter-label">Type</label>
             <select name="type" class="form-control" style="appearance: none;">
                 <option value="">All Types</option>
                 <option value="movie" <?php echo $type === 'movie' ? 'selected' : ''; ?>>Movie</option>
@@ -72,8 +70,7 @@ $items = $stmt->fetchAll();
             </select>
         </div>
         <div class="filter-select">
-            <label
-                style="font-size: 0.8rem; color: var(--text-dim); display: block; margin-bottom: 0.4rem;">Status</label>
+            <label class="filter-label">Status</label>
             <select name="status" class="form-control" style="appearance: none;">
                 <option value="">All Status</option>
                 <option value="owned" <?php echo $status === 'owned' ? 'selected' : ''; ?>>Owned</option>
@@ -84,8 +81,7 @@ $items = $stmt->fetchAll();
             </select>
         </div>
         <div class="filter-select">
-            <label style="font-size: 0.8rem; color: var(--text-dim); display: block; margin-bottom: 0.4rem;">Order
-                By</label>
+            <label class="filter-label">Order By</label>
             <select name="order_by" class="form-control" style="appearance: none;">
                 <option value="title" <?php echo $order_by === 'title' ? 'selected' : ''; ?>>Title (A-Z)</option>
                 <option value="date_desc" <?php echo $order_by === 'date_desc' ? 'selected' : ''; ?>>Newest First</option>
