@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<div style="max-width: 600px; margin: 2rem auto;">
+<div class="form-shell">
     <div style="margin-bottom: 2rem;">
         <a href="<?php echo BASE_URL; ?>/media-list.php"
             style="color: var(--text-dim); text-decoration: none; font-size: 0.9rem;">← Back to
@@ -85,8 +85,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endif; ?>
 
         <form method="POST">
-            <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem;">
-                <div class="form-group" style="grid-column: 1 / -1;">
+            <div class="two-col-form">
+                <div class="form-group full-span">
                     <label>Title *</label>
                     <input type="text" name="title" class="form-control" required
                         value="<?php echo htmlspecialchars($item['title'] ?? ''); ?>"
@@ -155,7 +155,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     placeholder="What do you think about this?"><?php echo htmlspecialchars($item['notes'] ?? ''); ?></textarea>
             </div>
 
-            <div style="margin-top: 1rem; display: flex; gap: 1rem;">
+            <div class="action-row" style="margin-top: 1rem;">
                 <button type="submit" class="btn btn-primary" style="flex: 1;">
                     <?php echo $id ? 'Save Changes' : 'Add Item'; ?>
                 </button>

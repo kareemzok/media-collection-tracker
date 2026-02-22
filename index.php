@@ -69,13 +69,45 @@ if (isset($_SESSION['user_id'])) {
             right: 15%;
             z-index: -1;
         }
+
+        @media (max-width: 900px) {
+            .hero {
+                height: auto;
+                min-height: 70vh;
+                padding: 3rem 0 2rem;
+            }
+
+            .hero h1 {
+                font-size: clamp(2.2rem, 9vw, 3.2rem);
+            }
+
+            .hero p {
+                font-size: 1.05rem;
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero::before,
+            .hero::after {
+                display: none;
+            }
+        }
     </style>
 </head>
 
 <body>
     <nav class="navbar">
         <a href="<?php echo BASE_URL; ?>/" class="brand">MediaTracker</a>
-        <div class="nav-links">
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="landing-nav" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="nav-toggle-icon" aria-hidden="true">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </span>
+        </button>
+        <div class="nav-links" id="landing-nav">
             <a href="<?php echo BASE_URL; ?>/auth/login.php">Login</a>
             <a href="<?php echo BASE_URL; ?>/auth/register.php" class="btn btn-primary">Get Started</a>
         </div>
@@ -86,7 +118,7 @@ if (isset($_SESSION['user_id'])) {
             <h1>Track Every Movie, <br> Game, and Album.</h1>
             <p>The premium personal media vault for collectors. Organize your collection, manage your wishlist, and
                 share your taste with the world.</p>
-            <div style="display: flex; gap: 1.5rem;">
+            <div class="hero-cta">
                 <a href="<?php echo BASE_URL; ?>/auth/register.php" class="btn btn-primary"
                     style="padding: 1rem 2.5rem; font-size: 1.1rem;">Start Collecting</a>
                 <a href="<?php echo BASE_URL; ?>/auth/login.php" class="btn btn-glass"
@@ -114,8 +146,7 @@ if (isset($_SESSION['user_id'])) {
         </div>
     </div>
 
-    <footer
-        style="padding: 4rem; text-align: center; border-top: 1px solid var(--glass-border); color: var(--text-dim); font-size: 0.9rem;">
+    <footer class="site-footer landing-footer">
         <p>&copy; <?php echo date('Y'); ?> MediaTracker. All rights reserved.</p>
     </footer>
     <script src="<?php echo BASE_URL; ?>/assets/js/main.js"></script>

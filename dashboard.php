@@ -35,7 +35,7 @@ $aiRemaining = max(0, $aiLimit - $aiUsage);
 ?>
 
 <div style="margin-bottom: 3rem;">
-    <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Hello,
+    <h1 class="page-title" style="margin-bottom: 0.5rem;">Hello,
         <?php echo htmlspecialchars($_SESSION['username']); ?>!
     </h1>
     <p style="color: var(--text-dim);">Welcome to your media collection dashboard.</p>
@@ -62,7 +62,7 @@ $aiRemaining = max(0, $aiLimit - $aiUsage);
     </div>
 </div>
 
-<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+<div class="section-header" style="margin-bottom: 1.5rem;">
     <h2>Recently Added</h2>
     <a href="<?php echo BASE_URL; ?>/media-list.php"
         style="color: var(--primary); text-decoration: none; font-weight: 600;">View All</a>
@@ -99,7 +99,7 @@ $aiRemaining = max(0, $aiLimit - $aiUsage);
 </div>
 
 <div class="glass-card" style="margin-top: 4rem; padding: 2rem;">
-    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+    <div class="split-row" style="margin-bottom: 1rem;">
         <div>
             <h3 style="margin-bottom: 0.5rem; <?php echo !AI_ENABLED_BOOL ? 'color: var(--text-dim);' : ''; ?>">Smart
                 Recommendations</h3>
@@ -113,7 +113,7 @@ $aiRemaining = max(0, $aiLimit - $aiUsage);
         </div>
         <button id="getAiRecommendations"
             class="btn <?php echo (AI_ENABLED_BOOL && $aiRemaining > 0) ? 'btn-primary' : 'btn-glass'; ?>"
-            style="display: flex; align-items: center;" <?php echo (!AI_ENABLED_BOOL || $aiRemaining <= 0) ? 'disabled' : ''; ?>>
+            style="display: inline-flex; align-items: center;" <?php echo (!AI_ENABLED_BOOL || $aiRemaining <= 0) ? 'disabled' : ''; ?>>
             <span id="btnText">
                 <?php
                 if (!AI_ENABLED_BOOL) {

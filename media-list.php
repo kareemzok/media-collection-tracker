@@ -47,21 +47,21 @@ $stmt->execute($params);
 $items = $stmt->fetchAll();
 ?>
 
-<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+<div class="page-header" style="margin-bottom: 2rem;">
     <h1>My Collection</h1>
     <a href="<?php echo BASE_URL; ?>/media-edit.php" class="btn btn-primary">+ Add New Item</a>
 </div>
 
 <!-- Filters -->
 <div class="glass-card" style="padding: 1.5rem; margin-bottom: 2rem;">
-    <form method="GET" style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: flex-end;">
-        <div style="flex: 1; min-width: 200px;">
+    <form method="GET" class="filters-form">
+        <div class="filter-search">
             <label
                 style="font-size: 0.8rem; color: var(--text-dim); display: block; margin-bottom: 0.4rem;">Search</label>
             <input type="text" name="search" class="form-control" value="<?php echo htmlspecialchars($search); ?>"
                 placeholder="Title, creator, or genre...">
         </div>
-        <div style="width: 150px;">
+        <div class="filter-select">
             <label
                 style="font-size: 0.8rem; color: var(--text-dim); display: block; margin-bottom: 0.4rem;">Type</label>
             <select name="type" class="form-control" style="appearance: none;">
@@ -71,7 +71,7 @@ $items = $stmt->fetchAll();
                 <option value="game" <?php echo $type === 'game' ? 'selected' : ''; ?>>Game</option>
             </select>
         </div>
-        <div style="width: 150px;">
+        <div class="filter-select">
             <label
                 style="font-size: 0.8rem; color: var(--text-dim); display: block; margin-bottom: 0.4rem;">Status</label>
             <select name="status" class="form-control" style="appearance: none;">
@@ -83,7 +83,7 @@ $items = $stmt->fetchAll();
                 <option value="completed" <?php echo $status === 'completed' ? 'selected' : ''; ?>>Completed</option>
             </select>
         </div>
-        <div style="width: 180px;">
+        <div class="filter-select">
             <label style="font-size: 0.8rem; color: var(--text-dim); display: block; margin-bottom: 0.4rem;">Order
                 By</label>
             <select name="order_by" class="form-control" style="appearance: none;">
@@ -94,8 +94,10 @@ $items = $stmt->fetchAll();
                 <option value="type" <?php echo $order_by === 'type' ? 'selected' : ''; ?>>Media Type</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Filter</button>
-        <a href="<?php echo BASE_URL; ?>/media-list.php" class="btn btn-glass">Clear</a>
+        <div class="filter-actions">
+            <button type="submit" class="btn btn-primary">Filter</button>
+            <a href="<?php echo BASE_URL; ?>/media-list.php" class="btn btn-glass">Clear</a>
+        </div>
     </form>
 </div>
 
@@ -136,8 +138,7 @@ $items = $stmt->fetchAll();
                     </div>
                 <?php endif; ?>
 
-                <div <div
-                    style="margin-top: auto; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--glass-border); padding-top: 1rem;">
+                <div class="collection-item-actions">
                     <a href="<?php echo BASE_URL; ?>/media-edit.php?id=<?php echo $item['id']; ?>" class="btn btn-glass"
                         style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Edit</a>
                     <form method="POST" action="<?php echo BASE_URL; ?>/auth/delete-item.php"

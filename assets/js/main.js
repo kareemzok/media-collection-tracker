@@ -3,6 +3,62 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("MediaTracker Initialized");
 
+  // Mobile navigation toggle.
+  const navbars = document.querySelectorAll(".navbar");
+  const mobileNavs = [];
+
+  navbars.forEach((navbar) => {
+    const toggle = navbar.querySelector(".nav-toggle");
+    const links = navbar.querySelector(".nav-links");
+    if (!toggle || !links) {
+      return;
+    }
+
+    const syncToggleState = (isOpen) => {
+      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    };
+
+    const closeNav = () => {
+      navbar.classList.remove("nav-open");
+      syncToggleState(false);
+    };
+
+    toggle.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const isOpen = navbar.classList.toggle("nav-open");
+      syncToggleState(isOpen);
+    });
+
+    links.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeNav);
+    });
+
+    mobileNavs.push({ navbar, closeNav });
+  });
+
+  if (mobileNavs.length > 0) {
+    document.addEventListener("click", (event) => {
+      mobileNavs.forEach(({ navbar, closeNav }) => {
+        if (!navbar.contains(event.target)) {
+          closeNav();
+        }
+      });
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 900) {
+        mobileNavs.forEach(({ closeNav }) => closeNav());
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        mobileNavs.forEach(({ closeNav }) => closeNav());
+      }
+    });
+  }
+
   // Subtle hover effect for glass cards
   const cards = document.querySelectorAll(".media-card");
   cards.forEach((card) => {

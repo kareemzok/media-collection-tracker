@@ -18,13 +18,21 @@ require_once __DIR__ . '/../includes/auth.php';
 <body>
     <nav class="navbar">
         <a href="<?php echo BASE_URL; ?>/" class="brand">MediaTracker</a>
-        <div class="nav-links">
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="nav-toggle-icon" aria-hidden="true">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </span>
+        </button>
+        <div class="nav-links" id="primary-nav">
             <?php if (isLoggedIn()): ?>
                 <a href="<?php echo BASE_URL; ?>/dashboard.php">Dashboard</a>
                 <a href="<?php echo BASE_URL; ?>/media-list.php">Collection</a>
                 <a href="<?php echo BASE_URL; ?>/profile.php">Profile</a>
                 <?php if (isAdmin()): ?>
-                    <a href="<?php echo BASE_URL; ?>/admin/dashboard.php" style="color: #fbbf24;">Admin</a>
+                    <a href="<?php echo BASE_URL; ?>/admin/dashboard.php" class="admin-link">Admin</a>
                 <?php endif; ?>
                 <a href="<?php echo BASE_URL; ?>/auth/logout.php" class="btn btn-primary"
                     style="padding: 0.4rem 0.8rem;">Logout</a>

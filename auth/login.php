@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<div style="max-width: 400px; margin: 4rem auto;">
+<div class="auth-shell" style="max-width: 400px;">
     <div class="glass-card">
         <h2 style="margin-bottom: 1.5rem; text-align: center;">Welcome Back</h2>
 

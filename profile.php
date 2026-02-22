@@ -21,8 +21,8 @@ $stmt->execute([$userId]);
 $user = $stmt->fetch();
 ?>
 
-<div style="max-width: 800px; margin: 0 auto;">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+<div class="profile-shell">
+    <div class="page-header" style="margin-bottom: 2rem;">
         <h1>Your Profile</h1>
         <a href="<?php echo BASE_URL; ?>/view-profile.php?user=<?php echo $user['username']; ?>" class="btn btn-primary"
             target="_blank">View
@@ -36,7 +36,7 @@ $user = $stmt->fetch();
         </div>
     <?php endif; ?>
 
-    <div class="grid" style="grid-template-columns: 1fr 2fr; gap: 2rem;">
+    <div class="grid profile-layout">
         <div class="glass-card" style="text-align: center;">
             <div
                 style="width: 100px; height: 100px; background: var(--primary); border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: 700;">
@@ -67,7 +67,7 @@ $user = $stmt->fetch();
             <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
                 <h4 style="margin-bottom: 1rem;">Share Your Collection</h4>
                 <?php $shareUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . BASE_URL . "/view-profile.php?user=" . $user['username']; ?>
-                <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+                <div class="share-url-row">
                     <input type="text" id="shareUrl" class="form-control" readonly value="<?php echo $shareUrl; ?>">
                     <button onclick="copyShareUrl()" class="btn btn-glass"
                         style="white-space: nowrap; padding: 0.75rem 1rem;">Copy</button>

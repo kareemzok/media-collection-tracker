@@ -35,7 +35,7 @@ $typeStats = $stmt->fetchAll();
     </div>
 </div>
 
-<div class="grid" style="grid-template-columns: 2fr 1fr; gap: 2rem;">
+<div class="grid admin-main-grid">
     <div class="glass-card">
         <h2 style="margin-bottom: 1.5rem;">Recent Users</h2>
         <div style="overflow-x: auto;">
