@@ -4,15 +4,16 @@ A premium, native PHP application with a glassy aesthetic to help you track your
 
 ## Features
 
-- **User Authentication & Profiles**: Secure login/registration system with customizable public bios and avatars.
-- **Glassmorphism UI**: A stunning, modern design using `backdrop-blur`, smooth transitions, and a responsive layout for all devices.
-- **Media Management**: Comprehensive CRUD operations for Movies, Music, and Games with rich metadata support (Notes, Ratings, Release Dates).
-- **Status Tracking**: Organize your items as "Owned", "Wishlist", "Currently Using", or "Completed".
-- **Advanced Sorting & Filtering**: Quickly find media by Title, Creator, Genre, or Status with real-time feedback.
-- **AI-Powered Recommendations**: Real-time suggestions powered by OpenAI API, tailored to your collection's genres and history.
-- **Public Collection Sharing**: Share your curated collection via unique public URLs with built-in social sharing (WhatsApp, Facebook, LinkedIn).
-- **Admin Dashboard**: High-level overview of system usage, user statistics, and collection trends.
-- **Activity Logging**: (Internal) Tracking of media additions and updates for future audit trails.
+- **User Authentication & Role Access**: Secure registration/login with password hashing, plus role-based admin access.
+- **Profile & Public Sharing**: Editable public bio, public profile page, copyable share URL, and social sharing buttons (WhatsApp, Facebook, LinkedIn).
+- **Media Collection CRUD**: Add, edit, delete, and list Movies, Music, and Games with metadata (creator, genre, release date, rating, notes).
+- **Status Tracking**: Organize items by "Owned", "Wishlist", "Currently Using", or "Completed".
+- **Filtering, Search & Sorting**: Filter by type/status, search by title/creator/genre, and sort by title/date/rating/type.
+- **Personal Dashboard**: See collection stats, wishlist/completed counts, and recently added items.
+- **AI Recommendations (OpenAI)**: Generate personalized recommendations with per-user daily limits and one-click add-to-wishlist.
+- **Admin Dashboard**: View total users/items, recent users, and media type distribution.
+- **Error Logging**: Centralized PHP error/exception/fatal logging to `storage/error.log`.
+- **Internal Activity Log**: Records recommendation-based additions in the `activity_log` table.
 
 ## Setup Instructions (Local)
 
