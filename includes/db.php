@@ -26,7 +26,7 @@ if (!defined('DB_PASS'))
 if (!defined('OPENAI_API_KEY'))
     define('OPENAI_API_KEY', '');
 if (!defined('OPENAI_MODEL'))
-    define('OPENAI_MODEL', 'gpt-4o-mini');
+    define('OPENAI_MODEL', '');
 if (!defined('OPENAI_TEMPERATURE'))
     define('OPENAI_TEMPERATURE', 0.7);
 if (!defined('AI_ENABLED'))
